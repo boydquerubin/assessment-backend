@@ -93,16 +93,16 @@ module.exports = {
     res.status(200).json({ message: "Quote deleted successfully" });
   },
 
-  editQuote: (req, res) => {
+  updateQuote: (req, res) => {
     const { id } = req.params;
     const { quote } = req.body;
-    quotes = quotes.map((item) => {
-      if (item.id === parseInt(id)) {
-        return { ...item, quote };
-      }
-      return item;
-    });
-    res.status(200).json({ message: "Quote updated successfully" });
+    const index = quotes.findIndex(item => item.id === parseInt(id));
+    if (index !== -1) {
+        quotes[index].quote = quote;
+        res.status(200).json({ message: "Quote updated successfully" });
+    } else {
+        res.status(404).json({ message: "Quote not found" });
+    }
   },
 
   getRandomQuote: (req, res) => {
