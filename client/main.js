@@ -116,3 +116,43 @@ sortBtn.addEventListener("click", () => {
       console.error("Error sorting quotes:", error);
     });
 });
+
+const createQuote = () => {
+  const quote = quoteInput.value.trim();
+  if (quote) {
+    axios
+      .post("http://localhost:4000/api/quotes/", { quote })
+      .then((response) => {
+        alert("Quote added successfully");
+        quoteInput.value = "";
+        getQuotesAndDisplay();
+      })
+      .catch((error) => {
+        console.error("Error creating quote:", error);
+      });
+  }
+};
+
+const deleteQuote = (id) => {
+  axios
+    .delete(`http://localhost:4000/api/quotes/${id}`)
+    .then((response) => {
+      alert(response.data.message);
+      getQuotesAndDisplay();
+    })
+    .catch((error) => {
+      console.error("Error deleting quote:", error);
+    });
+};
+
+const editQuote = (id, newQuote) => {
+  axios
+    .put(`http://localhost:4000/api/quotes/${id}`, { quote: newQuote })
+    .then((response) => {
+      alert(response.data.message);
+      getQuotesAndDisplay();
+    })
+    .catch((error) => {
+      console.error("Error editing quote:", error);
+    });
+};

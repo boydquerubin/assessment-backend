@@ -77,7 +77,7 @@ module.exports = {
     // choose random quote
     let randomIndex = Math.floor(Math.random() * allQuotes.length);
     let randomQuote = allQuotes[randomIndex];
-    res.status(200).json(allQuotes);
+    res.status(200).json(quotes);
   },
 
   createQuote: (req, res) => {
