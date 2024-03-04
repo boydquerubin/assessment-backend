@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back End Assessment</title>
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="fortuneButton">Get your fortune</button>
     <button id="diceButton">Roll Dice</button>
+
+    <label for="quoteInput">Search for quotes here</label>
+    <input type="text" id="quoteInput">
+    <button id="searchBtn">Search</button>
+
+    <h2>Inspirational Quotes:</h2>
+    <ul id="quotesList"></ul>
+
+    <button id="randomBtn">Get Random Quote</button>
+    <button id="sortBtn">Sort Alphabetically</button>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
